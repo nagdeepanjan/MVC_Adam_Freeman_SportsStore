@@ -12,4 +12,8 @@ var app = builder.Build();
 app.UseStaticFiles();
 app.MapDefaultControllerRoute();
 
+//SeedData.EnsurePopulated(app);
+//If you need to reset the DB, run the following in the SportsStore folder:
+//dotnet ef database drop --force --context StoreDbContext
+
 app.Run();
