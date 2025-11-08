@@ -7,6 +7,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IStoreRepository, EFStoreRepository>();          //Repository Dependency Injection
 builder.Services.AddDbContext<StoreDbContext>((options => options.UseSqlServer(builder.Configuration.GetConnectionString("SportsStoreConnection"))));
 
+builder.Services.AddRazorPages();                       //RAZOR PAGES!
+
 var app = builder.Build();
 
 app.UseStaticFiles();
