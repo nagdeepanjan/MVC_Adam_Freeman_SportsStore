@@ -7,7 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IStoreRepository, EFStoreRepository>();          //Repository Dependency Injection
 builder.Services.AddDbContext<StoreDbContext>((options => options.UseSqlServer(builder.Configuration.GetConnectionString("SportsStoreConnection"))));
 
-builder.Services.AddRazorPages();                       //RAZOR PAGES!
+builder.Services.AddRazorPages();                       //RAZOR PAGES as services
 
 var app = builder.Build();
 
@@ -19,6 +19,8 @@ app.MapControllerRoute("category", "{category}", new { Controller = "Home", acti
 app.MapControllerRoute("pagination", "Products/Page{productPage}", new { Controller = "Home", action = "Index", productPage = 1 });
 
 app.MapDefaultControllerRoute();
+app.MapRazorPages();                                    //Razor Pages routing
+
 
 //SeedData.EnsurePopulated(app);
 //If you need to reset the DB, run the following in the SportsStore folder:
